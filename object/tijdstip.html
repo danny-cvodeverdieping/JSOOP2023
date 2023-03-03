@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #hex {
+            color: white;
+            font: 64px/64px Verdana;
+            height: 64px;
+            position: relative;
+            top: 50%;
+            margin-top: -32px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hex"></div>
+    <input id="myBtn" type="button" value="Toon de kleurtijd">
+
+    <script>
+        let datum, uur, min, sec, color, docBody, hex;
+
+        window.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("myBtn").addEventListener("click", displayTime);
+            docBody = document.body;
+            hex = document.getElementById("hex");
+        });
+
+        function displayTime() {
+            datum = new Date(); //new date object
+            uur = datum.getHours();
+            min = datum.getMinutes();
+            sec = datum.getSeconds();
+
+            //controleer of de tijden slechts 1 digit bevatten via een aparte functie
+            uur = checkSingle(uur);
+            min = checkSingle(min);
+            sec = checkSingle(sec);
+
+            color = "#" + uur + min + sec;
+            //set backgroundcolor
+            docBody.style.backgroundColor = color;
+            //set time
+            hex.innerHTML = color;
+
+            //loop de functie
+            //via setTimeout kunnen we een functie oproepen na een bepaalde wachttijd
+            //we gaan dus dezelfde functie opnieuw uitvoeren na 1 seconde
+            setTimeout(displayTime, 1000);
+        }
+
+        function checkSingle(time) {
+            if (time <= 9) {
+                time = `0${time}`;
+            }
+            return time;
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
