@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 300px;
+        }
+
+        #rood {
+            width: 75px;
+            height: 100px;
+            background-color: red;
+            float: left;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        #onder {
+            width: 300px;
+            height: 300px;
+            background-color: lightgrey;
+            clear: both;
+            padding: 50px;
+            color: white;
+        }
+
+        #geel {
+            width: 75px;
+            height: 100px;
+            background-color: yellow;
+            cursor: pointer;
+            float: left;
+            padding: 10px;
+        }
+
+        #zwart {
+            width: 75px;
+            height: 100px;
+            background-color: black;
+            float: left;
+            cursor: pointer;
+            padding: 10px;
+            color: white;
+        }
+    </style>
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            let alleVakjes = document.getElementById("boven").children;
+            for (let i = 0; i < alleVakjes.length; i++) {
+                alleVakjes[i].addEventListener("mouseover", setColor);
+            }
+            let onder = document.getElementById("onder")
+        })
+
+        function setColor(e) {
+            //this is de div waar je muis over gaat
+            let kleur = window.getComputedStyle(this).getPropertyValue('background-color');
+            //Vraag de volledige style op van this
+            //vervolgens de waarde van de property background-color
+            //opgelet, de JS benaming verschilt van de CSS benaming
+            onder.style.backgroundColor = kleur;
+            onder.innerText = this.innerText;
+            console.log(onder)
+        }
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="boven">
+            <div id="zwart">Zwart</div>
+            <div id="geel">Geel</div>
+            <div id="rood">Rood</div>
+        </div>
+        <div id="onder"></div>
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .paragraaf {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Delegated events</h1>
+    <p class="paragraaf">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. </p>
+    <p class="paragraaf">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. </p>
+    <p class="paragraaf">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. </p>
+    <button id="knop">Maak extra paragraaf</button>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('knop').addEventListener('click', addParagraaf);
+            /*
+            let paragrafen = document.getElementsByClassName('paragraaf');
+            for (let i = 0; i < paragrafen.length; i++) {
+                paragrafen[i].addEventListener('click', maakBolder);
+            }*/
+            document.body.addEventListener('click', maakBolder);
+
+        })
+        function addParagraaf() {
+            let newParagraaf = document.createElement("p");
+            let newParagraafText = document.createTextNode("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+            newParagraaf.className = "paragraaf";
+            newParagraaf.appendChild(newParagraafText);
+            document.body.insertBefore(newParagraaf, document.getElementById('knop'));
+        }
+
+        function maakBolder(e) {
+            //target: refereert naar node waar event optreedt
+            console.log(e.target);
+            if (e.target.className === "paragraaf") {
+                e.target.style.fontWeight = "bolder"
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

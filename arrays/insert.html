@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>knop1</button>
+    <button>knop2</button>
+    <button>knop3</button>
+    <script>
+        let nieuweKnop = document.createElement("button");
+        let textnode = document.createTextNode("knop0");
+        nieuweKnop.appendChild(textnode);
+        let knoppen = document.body.getElementsByTagName("button");
+        console.log(knoppen);
+        //initieel kan de console tonen dat er 3 knoppen zijn, bij het openklikken wordt dit automatisch geherevalueerd, zodat er 4 knoppen getoond worden
+        document.body.insertBefore(nieuweKnop, knoppen[0]);
+        let legeTekst = document.createTextNode("\n");
+        document.body.insertBefore(legeTekst, knoppen[1]);
+    </script>
+</body>
+
+</html>

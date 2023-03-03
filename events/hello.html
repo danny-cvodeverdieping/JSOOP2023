@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("myBtn")
+                .addEventListener("click", function () {
+                    console.log(`this in function: ${this}`);
+                    console.log(`${this.innerHTML}`);
+                    //this verwijst dus naar het object waar de huidige functie wordt voor uitgevoerd: de button waarop geklikt is. Er kunnen dan opdrachten op uitgevoerd worden
+                });
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <p id="paragraaf"></p>
+    <button id="myBtn">Klik mij</button>
+
+
+</body>
+
+</html>
