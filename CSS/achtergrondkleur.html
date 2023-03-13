@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #CCCCCC;
+        }
+    </style>
+</head>
+
+<body>
+    <p><input id="achtergrondkleur"></p>
+    <p><button id="change">Verander</button></p>
+    <p><button id="reset">Reset</button></p>
+    <script>
+        let inputAchtergrondKleur = document.getElementById("achtergrondkleur");
+        let docBody = document.body;
+
+
+        //controle of er al een localStorage bestaat, zo ja, die gebruiken
+        if (localStorage.achtergrondkleur) {
+            docBody.style.backgroundColor = localStorage.achtergrondkleur;
+        }
+        //anders de localstorage aanmaken en invullen
+        else {
+            localStorage.achtergrondkleur = "#cccccc";
+        }
+
+        //de input invullen met de waarde uit de localStorage
+        inputAchtergrondKleur.value = localStorage.achtergrondkleur;
+
+        // de change knop
+        document.getElementById("change").addEventListener("click", function () {
+            localStorage.achtergrondkleur = inputAchtergrondKleur.value;
+            docBody.style.backgroundColor = inputAchtergrondKleur.value;
+        });
+
+        //de reset knop
+        document.getElementById("reset").addEventListener("click", function () {
+            localStorage.achtergrondkleur = "#CCCCCC";
+            docBody.style.backgroundColor = "#CCCCCC";
+            inputAchtergrondKleur.value = "#CCCCCC"
+        });
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

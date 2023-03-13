@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ingave" name="">
+    <button id="btnCheck">check</button>
+
+    <script>
+        document.getElementById('btnCheck').addEventListener('click', function () {
+            if (document.getElementById('ingave').value.length == 0) {
+                console.log("Er is niets ingevuld");
+                return;
+            }
+            else {
+                console.log("Er is iets ingevuld");
+            }
+            console.log("Dit is de code die na de if wordt uitgevoerd");
+        });
+
+        console.log("Dit is een log buiten de click handler");
+
+
+    </script>
+</body>
+
+</html>
